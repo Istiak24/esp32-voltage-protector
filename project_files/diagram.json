@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "candidate",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potV", "top": -260.5, "left": 9.4, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potI", "top": -174.1, "left": -153.8, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay", "top": -115, "left": 192, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": -40, "left": 260, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-led",
+      "id": "ledFault",
+      "top": -110,
+      "left": 330,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": -151.2,
+      "left": 405,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": 240, "left": -30, "attrs": { "pins": "i2c" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnUp",
+      "top": 198.2,
+      "left": -230.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnDn",
+      "top": 275,
+      "left": -230.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnSel",
+      "top": 361.4,
+      "left": -230.4,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "potV:VCC", "esp:3V3", "red", [ "v38.4", "h85.6", "v312.1" ] ],
+    [ "potV:GND", "esp:GND.1", "black", [ "v19.2", "h124.8", "v321.8" ] ],
+    [ "potV:SIG", "esp:D34", "green", [ "v38.4", "h-67.6", "v206.7" ] ],
+    [ "potI:VCC", "esp:3V3", "red", [ "v48", "h229.6", "v216.1" ] ],
+    [ "potI:GND", "esp:GND.1", "black", [ "v67.2", "h226.1" ] ],
+    [ "potI:SIG", "esp:D35", "orange", [ "v86.4", "h119.8" ] ],
+    [ "relay:VCC", "esp:VIN", "red", [ "h-240", "v254.5" ] ],
+    [ "relay:GND", "esp:GND.1", "black", [] ],
+    [ "relay:IN", "esp:D26", "blue", [] ],
+    [ "esp:D27", "r1:1", "purple", [] ],
+    [ "r1:2", "ledFault:A", "purple", [] ],
+    [ "ledFault:C", "esp:GND.1", "black", [] ],
+    [ "bz:1", "esp:GND.1", "black", [] ],
+    [ "bz:2", "esp:D25", "gold", [ "v57.6", "h-475.4", "v100.9" ] ],
+    [ "lcd:VCC", "esp:VIN", "red", [ "h-22", "v-123" ] ],
+    [ "lcd:GND", "esp:GND.1", "black", [] ],
+    [ "lcd:SDA", "esp:D21", "green", [ "h-31.6", "v-228.1" ] ],
+    [ "lcd:SCL", "esp:D22", "yellow", [ "h-41.2", "v-266.5" ] ],
+    [ "btnUp:1.l", "esp:D32", "green", [ "h-9.6", "v-139" ] ],
+    [ "btnUp:2.l", "esp:GND.1", "black", [ "h508.8", "v-81.2" ] ],
+    [ "btnDn:1.l", "esp:D33", "yellow", [ "h-38.4", "v-201.6", "h273.8" ] ],
+    [ "btnDn:2.l", "esp:GND.1", "black", [ "v105.8", "h585.6", "v-263.8" ] ],
+    [ "btnSel:1.l", "esp:D14", "blue", [ "h-57.6", "v-254.4" ] ],
+    [ "btnSel:2.l", "esp:GND.1", "black", [ "h547.2", "v-244.4" ] ]
+  ],
+  "dependencies": {}
+}
