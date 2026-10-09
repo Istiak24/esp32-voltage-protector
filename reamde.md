@@ -1,9 +1,9 @@
 # esp32-voltage-protector
 How to run it
 
-Option 1: open the Wokwi project
+open the Wokwi project
 
-Open: [TODO: paste your Wokwi project link here]
+Open: https://wokwi.com/projects/477384356229920769
 Click the green Start button.
 Open the serial monitor (115200 baud) and type HELP.
 
