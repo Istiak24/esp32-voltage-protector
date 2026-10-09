@@ -5,9 +5,9 @@ open the Wokwi project
 
 Open: https://wokwi.com/projects/477384356229920769
 Click the green Start button.
-Open the serial monitor (115200 baud) and type HELP.
+Open the serial monitor (115200 baud)
 
-Using the simulation
+Type HELP to see the Command Option for setting voltage/current/delay time
 
 Click a potentiometer and drag its slider. The voltage pot goes from 0 to 300 V and the current pot goes from 0 to 10 A.
 The relay module switches on when the load is connected and off after a trip.
